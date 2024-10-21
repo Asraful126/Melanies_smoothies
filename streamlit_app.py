@@ -1,6 +1,6 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
+# from snowflake.snowpark.context import get_active_session # [removed as advised]
 # load column package
 from snowflake.snowpark.functions import col, when_matched
 
@@ -25,7 +25,9 @@ st.write("Orders that need to be filled:")
 # my_dataframe = session.table("SMOOTHIES.PUBLIC.FRUIT_OPTIONS")
 # st.dataframe(data=my_dataframe, use_container_width=True)
 
-session = get_active_session()
+cnx = st.connection("snowflake")
+session = cnx.session()
+# session = get_active_session() # replaced by session = cnx.session()
 my_dataframe = session.table("SMOOTHIES.PUBLIC.orders").filter(col("order_filled")==0).collect()
 # st.dataframe(data=my_dataframe, use_container_width=True)
 
