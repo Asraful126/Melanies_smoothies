@@ -58,7 +58,7 @@ if ingredients_list:
 
 import requests
 fruityvice_response = requests.get("https://fdc.nal.usda.gov/fdc-app.html#/food-search?query=banana&type=Foundation")
-st.text(fruityvice_response)
+st.text(fruityvice_response.json())
 
 
 
