@@ -57,7 +57,7 @@ if ingredients_list:
         st.success('Your Smoothie is ordered!', icon="✅")
 
 import requests
-fruityvice_response = requests.get("https://fdc.nal.usda.gov/fdc-app.html#/food-search?query=banana&type=Foundation")
+fruityvice_response = requests.get("https://fdc.nal.usda.gov/fdc-app.html#/food-search?query=banana")
 st.text(fruityvice_response.json())
 
 
